@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Environmental Justice in Iowa</title>
+
+  <!-- Bootstrap Core CSS -->
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/style.css" />
+
+  <!-- import JQuery and Bootstrap -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  <!-- Leaflet -->
+  <link rel="stylesheet" href="https://npmcdn.com/leaflet@0.7.7/dist/leaflet.css" />
+  <script src="https://npmcdn.com/leaflet@0.7.7/dist/leaflet.js"></script>
+
+  <!-- D3.js -->
+  <link rel="stylesheet" href="css/d3.parcoords.css">
+  <script src="https://d3js.org/d3.v3.min.js"></script>
+  <!-- D3 legend to make it easier -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/1.13.0/d3-legend.js"></script>
+  <script src="js/d3.parcoords.js"></script>
+  <script src="js/colorbrewer.js"></script>
+
+</head>
+
+<body>
+
+  <nav class="navbar navbar-default">
+    <div class="container container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#defaultNavbar1"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+        <a class="navbar-brand" href="../index.html">Geog 5540</a>
+      </div>
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="defaultNavbar1">
+        <ul class="nav navbar-nav">
+
+          <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span></a>
+            <ul class="dropdown-menu" role="menu">
+              <li><a href="../shortbio.html">About</a></li>
+              <li><a href="../files/Aitchison_Resume_4_10_2021.pdf">Resume</a></li>
+              <li class="divider"></li>
+              <li><a href="mailto:meaitchison36@gmail.com">Contact</a></li>
+            </ul>
+          </li>
+        </ul>
+
+      </div>
+      <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+  </nav>
+
+  <div style="height:0px;" id="info-label" class="col-md-6 portfolio-item"></div>
+
+  <!-- Page Content -->
+  <div class="container">
+
+    <!-- Page Header -->
+
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <div class="row panel-header">
+          <div class="col-lg-12 page-header">
+            <h1><b>Environmental Justice in Iowa:</b></h1>
+            <h2><i>Disparate exposure to environmental hazards based on race, ethnicity, and income</i></h2>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-12">
+            <!-- Change the map description below-->
+            <h3>Background</h3>
+            <p>
+            The United States Environmental Protection Agency defines environmental justice as “the fair treatment and meaningful involvement of all people regardless of race, color, national origin, or income, with respect to the development, implementation, and enforcement of environmental laws, regulations, and policies” (United States Environmental Protection Agency, 2021). Environmental injustice, then, takes the form of disproportionate environmental burdens pushed onto underprivileged and underrepresented communities. This often manifests as discrimination; undesirable and even dangerous waste byproducts of industry are situated in places where residents have little in the way of financial or political power to resist, while more privileged communities have access to better environmental amenities such as greener spaces with minimal pollution.
+            <BR><BR>
+            There are multiple potential consequences to this disparity. One 2018 study found that the burden of particulate matter emissions, “associated with a number of health effects, including respiratory and cardiovascular diseases as well as premature mortality”, impact non-White and impoverished communities more than the overall population (Mikati et al., 2018). Toxic byproducts can be released into the air, soil, and water around a waste facility, even after the facility has been closed; they can also produce unpleasant odors, attract pests, and increase local traffic (California Office of Environmental Health Hazard Assessment, 2021). For these reasons, proximity to environmental hazards and waste sites may reduce property values, further financially penalizing those in poverty. Lower property values is also likely to mean less funding for local education, as school funding is often heavily reliant on property taxes. Given the known links between education and income over an individual’s lifetime, the consequences of environmental discrimination could be felt for generations.
+            <BR><BR>
+
+            <h3>Goals</h3>
+            This project aims to evaluate environmental justice within the context of contaminated sites and solid waste facilities within the state of Iowa. Based on the findings of previous research, it is hypothesized that communities (measured at the census block group level) which have a higher percentage of Black residents, a higher percentage of Hispanic or Latino residents, or a lower median household income will tend to be located closer to environmentally hazardous facilities and sites. This would be in keeping with the results of other studies at the state and national level. Contaminated sites will be examined separately from solid waste facilities (though there is likely to be significant overlap between the two datasets), to evaluate whether explicitly hazardous sites are any more or less likely to be associated with marginalized communities than solid waste facilities. It should be noted that this project will only be examining disparate exposure to undesirable or hazardous conditions; evaluations of disparate social impacts or disparate health impacts falls outside the intended scope of this project (though it could be a topic for future research). For greater detail, see the Limitations section.
+            </p>
+            <BR><BR>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-9">
+            <h3>Data Sources</h3>
+            <p>
+            Most of the data for this project was produced by the United States Census. Geospatial reference data for Iowa block groups (2,630 records) was obtained from the 2019 Cartographic Boundary Files as a polygon shapefile. Relevant socioeconomic demographic data for Iowa block groups was taken from the 2019 American Community Survey (ACS), specifically on Race, Ethnicity, and Median Household Income in the Past 12 Months (in 2019 inflation-adjusted dollars). All sets of tabular ACS datasets are provided with a margin of error field representing the range (both above and below the given estimate) within which there can be 90% confidence that the true value will exist.
+            <BR><BR>
+            Geospatial and attribute data for solid waste facilities and contaminated sites facilities in Iowa were obtained from the Iowa Department of Natural Resources (DNR) through the State of Iowa Open Geospatial Data website, in the form of two point shapefiles. The solid waste facilities shapefile (1,278 records) includes sanitary landfills, appliance demanufacturing facilities, transfer stations, land application sites, incinerators, composting facilities, household hazardous materials sites, waste tire management and material recovery facilities. It also includes all sites which are permitted or have had permits. The contaminated sites facilities shapefile (1,885 records) represents sites administered by the Contaminated Sites Section of the Iowa DNR, and includes sites for Brownfields, CERCLA Preremedial and Remedial, Chapter 133, and the Land Recycling Program.
+            <BR><BR>
+            </p>
+          </div>
+          <div class="col-lg-2">
+            <BR><BR><BR><BR>
+            <img src="images/US-Census-Bureau-logo.png" width="140" height="140">
+            <img src="images/ia_dnr.jpeg" width="140" height="140">
+          </div>
+        </div>
+        <div class="row">
+          <div class = "col-lg-12">
+            <h3>Methodology</h3>
+            <p>
+            The following figures and calculations were obtained via an approach sometimes termed areal apportionment. First, buffers were created around each facility or site point location. Based on prior research (which advocated for creating a series of buffers at varying distances to account for the effect of distance on any notable relationships), three buffers were created at a distance of 1 mile, 3 miles, and 5 miles. These values were chosen semi-arbitrarily, but based on precedence (Maranville et al., 2009). This procedure was done for the solid waste facilities and the contaminated sites separately. Next, the area of each census block group was calculated, as well as the area of each census block overlapping with each distance buffer. From this, percentages were calculated for the proportion of each census block group located within 1, 3, and 5 miles of any given facility or site in the dataset. This provides an estimate of the proximity of each census block population to a solid waste facility or contaminated site.
+            </p>
+            <figure>
+              <img src="images/con_buff_ex.jpg" width="734" height="500" class = "center">
+              <figcaption>An example of the buffering process. This map shows the area encompassed by a 3 mile buffer around contaminated sites, set over a map of Iowa census block groups.</figcaption>
+            </figure>
+            <BR><BR>
+            <h3>Visualizations</h3>
+            <p>
+            The following is a choropleth map linked to a parallel plot representing the four major variables of interest for this study: percentage of Black residents, percentage of Hispanic or Latino residents, median household income (last 12 months, 2019 inflation-adjusted dollars), and percentage of the census block within 1 miles of a contaminated site. The choropleth map can show one of each of these variables at a time (selected from the drop down menu), while the parallel plot shows all variables regardless of which is active on the map. You can highlight certain values of each variable on the parallel plot by clicking and dragging your cursor over the range you'd like to see.
+            <BR><BR>
+            </p>
+          </div>
+        </div>
+
+
+          <!-- /.row -->
+          <div class="row">
+            <div class="col-lg-2">
+              <div id="dropdown"></div>
+              <br><br>
+              <svg id ="legend">
+              </svg>
+            </div>
+            <!-- Projects Row -->
+            <div class="row">
+              <div class="col-lg-12">
+                <div class="col-md-12 portfolio-item">
+                  <div id="map"/>
+                </div>
+              </div>
+            </div>
+            <!-- /.row -->
+          </div>
+          <!-- /.row -->
+
+
+          <br style="margin-top:10px;">
+
+          <!-- Projects Row -->
+          <div class="row">
+            <div class="col-lg-12 portfolio-item">
+              <div class="col-md-12 portfolio-item">
+                <div id="pcp" class="parcoords"/>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-xs-12">
+              <p><b>Tip:</b> You can mouse over a census block group to highlight the parallel coordinate plot!</p>
+              <BR><BR>
+            </div>
+          </div>
+          <div class="row">
+            <div class = "col-lg-12">
+              <h3>Limitations</h3>
+              <p>
+              As mentioned previously, this project only evaluates disparate <i>exposure</i> across socioeconomic demographics of interest, not disparate health impacts or disparate social impacts. Health impacts of environmental pollutants can be affected by a number of factors besides exposure (such as genetic/biological susceptibility and access to healthcare), and so it is often difficult to establish direct correlations between exposure and health outcomes, even if there is in fact a causal relationship present (Downey, 2005). It can be easier to evaluate correlations between socioeconomic impacts and disparate exposure, but making the case for a causal link remains challenging. Are property values lower because of their proximity to waste sites, are waste sites located where land is least expensive (burdening low-income communities), or are there other factors which simultaneously make land appropriate for waste sites and less desirable for housing? Any or all of the above relationships are plausible. Consequently, this project merely aims to establish whether there is evidence for disparate exposure to the risk of negative outcomes among marginalized and underprivileged communities.
+              <BR><BR>
+              Finally, there are limitations introduced by the available data and the nature of the study area. The population of Iowa is around 90% White, a figure that only increases in rural areas. The populations of non-White demographics in Iowa may be too small, and too spatially concentrated, for meaningful statistical analysis.  Spatial autocorrelation (the tendency for similar things to be grouped spatially) significantly affects the ability to infer correlation, much less causation. As an example, Additionally, the areal apportionment approach used in this analysis assumes that populations are evenly distributed throughout census block groups. This assumption is questionable, but largely unavoidable when dealing with any census population data. Varying costs of living (especially between rural and urban communities) means that median household income is only partially valid as a measure of socioeconomic class and poverty levels. Finally, census ACS data is also an estimate of population levels and median incomes, and there is a margin of error and uncertainty associated with those estimates.
+              <BR><BR>
+              </p>
+              <h3>Analysis</h3>
+              <p>
+
+              </p>
+              <table border="1" width="100%">
+              	<tr>
+              		<td></td>
+              		<td><b>Moran's Index</b></td>
+              		<td><b>Expected Index</b></td>
+              		<td><b>Variance</b></td>
+                  <td><b>z-score</b></td>
+                  <td><b>p-value</b></td>
+
+              	</tr>
+              	<tr>
+                  <td><b>Percent Black</b></td>
+              		<td>0.471718</td>
+              		<td>-0.000381</td>
+              		<td>0.000124</td>
+                  <td>42.339812</td>
+                  <td>0.000000</td>
+              	</tr>
+              	<tr>
+                  <td><b>Percent Hispanic or Latino</b></td>
+              		<td>0.454157</td>
+              		<td>-0.000381</td>
+              		<td>0.000125</td>
+                  <td>40.675276</td>
+                  <td>0.000000</td>
+              	</tr>
+                <tr>
+                  <td><b>Median Household Income</b></td>
+                  <td>0.407577</td>
+                  <td>-0.000387</td>
+                  <td>0.000133</td>
+                  <td>35.343863</td>
+                  <td>0.000000</td>
+                </tr>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /.container -->
+
+            <hr>
+            <br>
+
+            <!-- Footer -->
+            <footer>
+              <div class="row">
+                <div class="col-lg-12 text-center">
+                  <p>Copyright &copy; Ryan Larson & Caglar Koylu 2020</p>
+                </div>
+              </div>
+              <!-- /.row -->
+            </footer>
+
+            <!--link to main JavaScript file-->
+            <script src="js/main_Iowa.js"></script>
+            <script src="js/lisa_maps.js"></script>
+
+          </body>
+
+          </html>
