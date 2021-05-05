@@ -15,7 +15,7 @@ var key = "AFFGEOID";
 var dropdowntext = "Select Attribute:";
 
 //TODO: change the name of the attributes to include in the parallel coordinate plot
-var attNames = ["pctBlack", "pctHispanicLatino", "MedianIncome", "contaminated_1_mile"];
+var attNames = ["solid_1_mile", "pctBlack", "pctHispanicLatino", "MedianIncome", "contaminated_1_mile"];
 
 var attLegendFormat = ".2f"
 
