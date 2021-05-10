@@ -117,13 +117,13 @@
             The following figures and calculations were obtained via an approach often called "areal apportionment". First, buffers were created around each facility or site point location. Based on prior research (which advocated for creating a series of buffers at varying distances to account for the effect of distance on any notable relationships), three buffers were created at a distance of 1 mile, 3 miles, and 5 miles. These values were chosen semi-arbitrarily, but based on precedence (Maranville et al., 2009). This procedure was done for the solid waste facilities and the contaminated sites separately. Next, the area of each census block group was calculated, as well as the area of each census block overlapping with each distance buffer. From this, percentages were calculated for the proportion of each census block group located within 1, 3, and 5 miles of any given facility or site in the dataset. This provides an estimate of the proximity of each census block population to a solid waste facility or contaminated site.
             </p>
             <figure>
-              <img src="images/con_buff_ex.jpg" width="734" height="500" class = "center">
+              <img src="images/con_buff_ex.jpg" width="440" height="300" class = "center">
               <figcaption>An example of the buffering process. This map shows the area encompassed by a 3 mile buffer around contaminated sites, set over a map of Iowa census block groups.</figcaption>
             </figure>
             <BR><BR>
             <h3>Visualizations</h3>
             <p>
-            The following is a choropleth map linked to a parallel plot representing the four major variables of interest for this study: percentage of Black residents, percentage of Hispanic or Latino residents, median household income (last 12 months, 2019 inflation-adjusted dollars), and percentage of the census block within 1 miles of a contaminated site. The choropleth map can show one of each of these variables at a time (selected from the drop down menu), while the parallel plot shows all variables regardless of which is active on the map. You can highlight certain values of each variable on the parallel plot by clicking and dragging your cursor over the range you'd like to see.
+            The following is a choropleth map linked to a parallel plot representing the five major variables of interest for this study: percentage of Black residents, percentage of Hispanic or Latino residents, median household income (last 12 months, 2019 inflation-adjusted dollars), percentage of the census block within 1 miles of a solid waste facility, and percentage of the census block within 1 miles of a contaminated site. The choropleth map can show one of each of these variables at a time (selected from the drop down menu), while the parallel plot shows all variables regardless of which is active on the map. You can highlight certain values of each variable on the parallel plot by clicking and dragging your cursor over the range you'd like to see. Be sure to zoom in on urban areas to see some of the smaller census block groups that might not show up at the full extent of the state of Iowa.
             <BR><BR>
             </p>
           </div>
@@ -172,50 +172,13 @@
             <div class = "col-lg-12">
               <h3>Limitations</h3>
               <p>
-              As mentioned previously, this project only evaluates disparate <i>exposure</i> across socioeconomic demographics of interest, not disparate health impacts or disparate social impacts. Health impacts of environmental pollutants can be affected by a number of factors besides exposure (such as genetic/biological susceptibility and access to healthcare), and so it is often difficult to establish direct correlations between exposure and health outcomes, even if there is in fact a causal relationship present (Downey, 2005). It can be easier to evaluate correlations between socioeconomic impacts and disparate exposure, but making the case for a causal link remains challenging. Are property values lower because of their proximity to waste sites, are waste sites located where land is least expensive (burdening low-income communities), or are there other factors which simultaneously make land appropriate for waste sites and less desirable for housing? Any or all of the above relationships are plausible. Consequently, this project merely aims to establish whether there is evidence for disparate exposure to the risk of negative outcomes among marginalized and underprivileged communities.
-              <BR><BR>
-              Finally, there are limitations introduced by the available data and the nature of the study area. The population of Iowa is around 90% White, a figure that only increases in rural areas. The populations of non-White demographics in Iowa may be too small, and too spatially concentrated, for meaningful statistical analysis.  Spatial autocorrelation (the tendency for similar things to be grouped spatially) significantly affects the ability to infer correlation, much less causation. Additionally, the areal apportionment approach used in this analysis assumes that populations are evenly distributed throughout census block groups. This assumption is questionable, but largely unavoidable when dealing with any census population data. Varying costs of living (especially between rural and urban communities) means that median household income is only partially valid as a measure of socioeconomic class and poverty levels. Finally, census ACS data is also an estimate of population levels and median incomes, and there is a margin of error and uncertainty associated with those estimates.
+                As mentioned previously, this project only evaluates disparate exposure across socioeconomic demographics of interest, not disparate health impacts or disparate social impacts. Health impacts of environmental pollutants can be affected by a number of factors besides exposure (such as genetic/biological susceptibility and access to healthcare), and so it is often difficult to establish direct correlations between exposure and health outcomes, even if there is in fact a causal relationship present (Downey, 2005). It can be easier to evaluate correlations between socioeconomic impacts and disparate exposure, but making the case for a causal link remains challenging. Are property values lower because of their proximity to waste sites, are waste sites located where land is least expensive (burdening low-income communities), or are there other factors which simultaneously make land appropriate for waste sites and less desirable for housing? Any or all of the above relationships are plausible. Consequently, this project merely aims to establish whether there is evidence for disparate exposure to the risk of negative outcomes among marginalized and underprivileged communities.
+                <BR><BR>
+                There are also limitations introduced by the nature of the study area. The population of Iowa is around 90% White, a figure that only increases in rural areas. The populations of non-White demographics in Iowa may be too small, and too spatially concentrated, for meaningful statistical analysis. Spatial autocorrelation (the tendency for similar things to be grouped spatially) significantly affects the ability to infer correlation, much less causation. As mentioned in the Discussion and Conclusion Section, the demographics of this particular case study cause a number of problems when attempting to statistically analyze the resulting data for useful information.
+                <BR><BR>
+                Finally, there are limitations associated with the data itself. The areal apportionment approach used in this analysis assumes that populations are evenly distributed throughout census block groups. This assumption is questionable, but largely unavoidable when dealing with any census population data, and can be minimized as a source of error by using the smallest areal units possible for the analysis to lessen the degree of intra-area variation in population density and distribution. Varying costs of living (especially between rural and urban communities) means that median household income is only partially valid as a measure of socioeconomic class and poverty levels. Census ACS data is also an estimate of population levels and median incomes, and there is a margin of error and uncertainty associated with those estimates. Lastly, the datasets used to represent contaminated sites and solid waste facilities utilize points rather than polygonal boundaries; these points are likely only centroids, and so do not necessarily adequately represent the true extent of the spatial area of interest for analysis.
               <BR><BR>
               </p>
-              <!-- <h3>Analysis</h3>
-              <p>
-
-              </p>
-              <table border="1" width="100%">
-              	<tr>
-              		<td></td>
-              		<td><b>Moran's Index</b></td>
-              		<td><b>Expected Index</b></td>
-              		<td><b>Variance</b></td>
-                  <td><b>z-score</b></td>
-                  <td><b>p-value</b></td>
-
-              	</tr>
-              	<tr>
-                  <td><b>Percent Black</b></td>
-              		<td>0.471718</td>
-              		<td>-0.000381</td>
-              		<td>0.000124</td>
-                  <td>42.339812</td>
-                  <td>0.000000</td>
-              	</tr>
-              	<tr>
-                  <td><b>Percent Hispanic or Latino</b></td>
-              		<td>0.454157</td>
-              		<td>-0.000381</td>
-              		<td>0.000125</td>
-                  <td>40.675276</td>
-                  <td>0.000000</td>
-              	</tr>
-                <tr>
-                  <td><b>Median Household Income</b></td>
-                  <td>0.407577</td>
-                  <td>-0.000387</td>
-                  <td>0.000133</td>
-                  <td>35.343863</td>
-                  <td>0.000000</td>
-                </tr>
-              </table> -->
             </div>
           </div>
         </div>
